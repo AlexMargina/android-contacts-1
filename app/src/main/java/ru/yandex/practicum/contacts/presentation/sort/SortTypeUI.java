@@ -2,9 +2,11 @@ package ru.yandex.practicum.contacts.presentation.sort;
 
 import androidx.annotation.NonNull;
 
+import ru.yandex.practicum.contacts.presentation.base.ListDiffInterface;
+import ru.yandex.practicum.contacts.presentation.main.ContactUi;
 import ru.yandex.practicum.contacts.presentation.sort.model.SortType;
 
-public class SortTypeUI {
+public class SortTypeUI implements ListDiffInterface <SortTypeUI>  {
 
     private final SortType sortType;
     private final boolean selected;
@@ -22,6 +24,12 @@ public class SortTypeUI {
         return selected;
     }
 
+
+    @Override
+    public boolean theSameAs(SortTypeUI sortTypeUI) {
+        return this.getSortType() == sortTypeUI.getSortType();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -31,6 +39,11 @@ public class SortTypeUI {
 
         if (selected != that.selected) return false;
         return sortType == that.sortType;
+    }
+
+    @Override
+    public boolean equals(ContactUi contactUi) {
+        return false;
     }
 
     @Override
