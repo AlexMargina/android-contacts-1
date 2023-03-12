@@ -42,11 +42,6 @@ public class SortTypeUI implements ListDiffInterface <SortTypeUI>  {
     }
 
     @Override
-    public boolean equals(ContactUi contactUi) {
-        return false;
-    }
-
-    @Override
     public int hashCode() {
         int result = sortType.hashCode();
         result = 31 * result + (selected ? 1 : 0);

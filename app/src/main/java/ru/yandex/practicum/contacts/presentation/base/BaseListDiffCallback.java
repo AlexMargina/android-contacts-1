@@ -5,25 +5,29 @@ import androidx.recyclerview.widget.DiffUtil;
 
 import ru.yandex.practicum.contacts.presentation.main.ContactUi;
 
-public class BaseListDiffCallback<T extends ListDiffInterface> implements ListDiffInterface<T> {
+public class BaseListDiffCallback<T extends ListDiffInterface<T>> extends DiffUtil.ItemCallback<T> {
 
 
-    @Override
     public boolean theSameAs(@NonNull T t) {
         return this.hashCode() == t.hashCode();
     }
 
-    @Override
-    public boolean equals(ContactUi contactUi) {
+
+    public boolean equals(T t) {
         return false;
     }
 
 
 
-    public Object getChangePayload(@NonNull ContactUi oldItem, @NonNull ContactUi newItem) {
+    public Object getChangePayload(@NonNull T oldItem, @NonNull T newItem) {
         return newItem;
     }
 
+
+    @Override
+    public boolean areItemsTheSame(@NonNull T oldItem, @NonNull T newItem) {
+        return false;
+    }
 
     public boolean areContentsTheSame(@NonNull T oldItem, @NonNull T newItem) {
         return false;

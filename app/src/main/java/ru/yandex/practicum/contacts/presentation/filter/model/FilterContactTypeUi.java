@@ -41,10 +41,6 @@ public class FilterContactTypeUi implements ListDiffInterface<FilterContactTypeU
         return contactType == that.contactType;
     }
 
-    @Override
-    public boolean equals(ContactUi contactUi) {
-        return false;
-    }
 
     @Override
     public int hashCode() {

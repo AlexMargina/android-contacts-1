@@ -13,6 +13,5 @@ public interface ListDiffInterface <T> {
 
      boolean equals (Object o) ;
 
-    boolean equals(ContactUi contactUi);
 }
 
