@@ -7,6 +7,7 @@ import ru.yandex.practicum.contacts.presentation.main.ContactUi;
 
 public class BaseListDiffCallback<T extends ListDiffInterface<T>> extends DiffUtil.ItemCallback<T> {
 
+    @Override
     public Object getChangePayload(@NonNull T oldItem, @NonNull T newItem) {
         return newItem;
     }
@@ -23,10 +24,4 @@ public class BaseListDiffCallback<T extends ListDiffInterface<T>> extends DiffUt
     public boolean areItemsTheSame(@NonNull T oldItem, @NonNull T newItem) {
         return oldItem.theSameAs(newItem);
     }
-
-    //public boolean theSameAs(@NonNull T t) { return this.hashCode() == t.hashCode(); }  //***удалить, после первой проверки
-
-    //public boolean equals(T t) {        return false;    }    //***удалить, после первой проверки
-
 }
-
